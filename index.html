@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn Vue JS with trantition</title>
+   <link rel="stylesheet" href="animate.css">
+   <style>
+    .fade-transition{
+        transition: opacity .5s ease;
+    }
+    .fade-enter, .fade-leave{
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    
+
+
+    <div id ="app">
+        <ul>
+            <li><a href="#" @click="currentView'home'"></a> Home</li>
+            <li><a href="#" @click="currentView'profile'"></a> Profil</li>
+        </ul>
+        <component :is="currentView" class="animated" transition="custom-fade" transition-mode="out-in" ></component>
+    </div>
+
+    
+    <script src="vue.min.js"></script>
+    <script>
+        Vue.transition('custom-fade', {
+            enterClass : 'bounceInDown',
+            leaveClass : 'fadeOutUp'
+        });
+
+    </script>
+</body>
+</html>
